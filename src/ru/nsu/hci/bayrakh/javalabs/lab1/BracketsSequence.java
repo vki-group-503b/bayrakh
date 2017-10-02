@@ -16,13 +16,10 @@ public class BracketsSequence {
 
             if (bracket.isOpening(symbol)) {
                 stack.push(symbol);
-            } else if (bracket.getClosingBracket(stack.peek()) == symbol) {
-                if (stack.empty()) {
+            } else {
+                if ((stack.empty()) || (bracket.getClosingBracket(stack.pop()) != symbol)) {
                     return false;
                 }
-                stack.pop();
-            } else {
-                return false;
             }
         }
         return stack.empty();
