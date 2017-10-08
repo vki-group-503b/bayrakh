@@ -8,17 +8,17 @@ public class NumericStatistics {
         System.out.print("Введите количество чисел: ");
         Scanner s = new Scanner(System.in);
         int count = s.nextInt();
-        if (count == 0) return;
-        NumericStatisticComputer comp = new NumericStatisticComputer(count);
+        double[] numbers = new double[count];
         for (int i = 0; i < count; i++) {
             System.out.printf("Введите число #%d: ", i + 1);
-            comp.add(s.nextDouble());
+            numbers[i] = s.nextDouble();
         }
-        System.out.printf("Последовательность чисел: %s", comp.toString());
-        System.out.printf("%nМинимум: %.1f%n", comp.getMin());
-        System.out.printf("Максимум: %.1f%n", comp.getMax());
-        System.out.printf("Среднее арифметическое: %.2f%n", comp.getAgv());
-        System.out.printf("Медиана: %.2f%n", comp.getMed());
-        System.out.printf("Среднее геаметрическое: %.2f%n", comp.getGev());
+        NumericStorage store = new NumericStorage(numbers);
+        System.out.printf("Последовательность чисел: %s", store.toString());
+        System.out.printf("%nМинимум: %.1f%n", store.getMin());
+        System.out.printf("Максимум: %.1f%n", store.getMax());
+        System.out.printf("Среднее арифметическое: %.2f%n", store.getAgv());
+        System.out.printf("Медиана: %.2f%n", store.getMed());
+        System.out.printf("Среднее геаметрическое: %.2f%n", store.getGev());
     }
 }

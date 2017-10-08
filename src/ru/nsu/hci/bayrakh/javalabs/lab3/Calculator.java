@@ -79,14 +79,18 @@ public class Calculator {
         );
     }
     public static void executeOperation(char s, Stack<Double> numbers) throws EmptyStackException {
-        if (isAddOperation(s)) {
-            numbers.push(numbers.pop() + numbers.pop());
-        } else if (isSubOperation(s)) {
-            numbers.push(numbers.pop() - numbers.pop());
-        } else if (isMulOperation(s)) {
-            numbers.push(numbers.pop() * numbers.pop());
-        } else if (isDivOperation(s)) {
-            numbers.push(numbers.pop() / numbers.pop());
+        if (isOperation(s)) {
+            double r = numbers.pop();
+            double l = numbers.pop();
+            if (isAddOperation(s)) {
+                numbers.push(l + r);
+            } else if (isSubOperation(s)) {
+                numbers.push(l - r);
+            } else if (isMulOperation(s)) {
+                numbers.push(l * r);
+            } else {
+                numbers.push(l / r);
+            }
         }
     }
     public static String getFromStackAndPutIntoResult(String result,Stack<Character> operations, Stack<Double> numbers, boolean ignoreBrackets) {
