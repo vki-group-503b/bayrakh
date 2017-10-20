@@ -2,7 +2,7 @@ package ru.nsu.hci.bayrakh.javalabs.lab3;
 
 import java.util.Scanner;
 
-public class lab3 {
+public class Infix2PostfixCalculator {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
         System.out.print("Введите выражение: ");
