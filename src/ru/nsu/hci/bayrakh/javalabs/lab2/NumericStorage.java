@@ -8,28 +8,33 @@ import static java.lang.Double.NEGATIVE_INFINITY;
 
 public class NumericStorage {
     private double[] numbers;
+
     NumericStorage(double[] nums) {
         numbers = new double[nums.length];
         System.arraycopy(nums, 0, numbers, 0, nums.length);
         Arrays.sort(numbers);
     }
+
     public double getMin() {
         if (numbers.length > 0)
             return numbers[0];
         return POSITIVE_INFINITY;
     }
+
     public double getMax() {
         if (numbers.length > 0)
             return numbers[numbers.length - 1];
         return NEGATIVE_INFINITY;
     }
+
     public double getAgv() {
         double sum = 0;
         for (double e : numbers) {
             sum += e;
         }
-        return sum/numbers.length;
+        return sum / numbers.length;
     }
+
     public double getMed() {
         if (numbers.length == 0)
             return NaN;
@@ -37,17 +42,19 @@ public class NumericStorage {
             int pos = numbers.length / 2;
             return (numbers[pos] + numbers[pos - 1]) / 2;
         } else {
-            int pos = (numbers.length - 1)/2;
+            int pos = (numbers.length - 1) / 2;
             return numbers[pos];
         }
     }
+
     public double getGev() {
         double mul = 1;
         for (double e : numbers) {
             mul *= e;
         }
-        return Math.pow(mul, 1/((double) numbers.length));
+        return Math.pow(mul, 1 / ((double) numbers.length));
     }
+
     public String toString() {
         StringBuilder result = new StringBuilder();
         if (numbers.length > 0) {
