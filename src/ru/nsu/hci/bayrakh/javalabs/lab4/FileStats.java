@@ -6,10 +6,11 @@ import java.util.HashMap;
 import java.util.Scanner;
 
 public class FileStats {
-    public int lines;
-    public int words;
-    public int letters;
+    private int lines;
+    private int words;
+    private int letters;
     public HashMap<Character, Integer> letterCounts;
+
     FileStats(String filename) throws FileNotFoundException {
         lines = 0;
         words = 0;
@@ -35,5 +36,17 @@ public class FileStats {
                 }
             }
         }
+    }
+
+    public int getLines() {
+        return lines;
+    }
+
+    public int getLetters() {
+        return letters;
+    }
+
+    public int getWords() {
+        return words;
     }
 }

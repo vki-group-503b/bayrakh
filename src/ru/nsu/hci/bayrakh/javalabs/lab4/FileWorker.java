@@ -11,9 +11,9 @@ public class FileWorker {
         String filename = input.nextLine();
         try {
             FileStats stats = new FileStats(filename);
-            System.out.printf("Строк: %d%n", stats.lines);
-            System.out.printf("Слов: %d%n", stats.words);
-            System.out.printf("Букв: %d%n", stats.letters);
+            System.out.printf("Строк: %d%n", stats.getLines());
+            System.out.printf("Слов: %d%n", stats.getWords());
+            System.out.printf("Букв: %d%n", stats.getLetters());
             for (HashMap.Entry<Character, Integer> entry : stats.letterCounts.entrySet()) {
                 System.out.printf("Букв %s: %d%n", entry.getKey(), entry.getValue());
             }
