@@ -3,6 +3,8 @@ package ru.nsu.hci.bayrakh.javalabs.lab2;
 import java.util.Arrays;
 
 import static java.lang.Double.NaN;
+import static java.lang.Double.POSITIVE_INFINITY;
+import static java.lang.Double.NEGATIVE_INFINITY;
 
 public class NumericStorage {
     private double[] numbers;
@@ -14,12 +16,12 @@ public class NumericStorage {
     public double getMin() {
         if (numbers.length > 0)
             return numbers[0];
-        return NaN;
+        return POSITIVE_INFINITY;
     }
     public double getMax() {
         if (numbers.length > 0)
             return numbers[numbers.length - 1];
-        return NaN;
+        return NEGATIVE_INFINITY;
     }
     public double getAgv() {
         double sum = 0;
