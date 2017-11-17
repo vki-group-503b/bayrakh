@@ -4,6 +4,7 @@ public class Point3DPolar {
     private double r;
     private double lat;
     private double lon;
+
     Point3DPolar(Point3D s) {
         r = Point3D.getModule(s);
         if (Double.compare(r, 0) == 0) {
@@ -11,6 +12,19 @@ public class Point3DPolar {
             lon = 0;
             return;
         }
+        /*
+            x = r * cos(lat)
+            lat = acos(x / r)
+
+            y = r * sin(lat) * cos(lon)
+            z = r * sin(lat) * sin(lon)
+
+            rLatSin = r * sin(lat)
+            y = rLatSin * cos(lon)
+            z = rLatSin * sin(lon)
+            lon = acos(y / rLatSin)
+            lon = asin(z / rLatSin)
+        */
         lat = acos(s.getX() / r);
         final double rLatSin = r * Math.sin(lat);
         final double DoublePI = 2 * Math.PI;

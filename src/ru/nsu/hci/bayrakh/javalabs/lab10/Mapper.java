@@ -1,7 +1,6 @@
 package ru.nsu.hci.bayrakh.javalabs.lab10;
 
 import javafx.util.Pair;
-
 import java.lang.reflect.Field;
 import java.util.HashMap;
 import java.util.Vector;
@@ -48,7 +47,10 @@ public class Mapper<TSource, TDestination> {
     public TDestination Map(TSource obj) throws IllegalAccessException, InstantiationException {
         TDestination result = destinationClass.newInstance();
         for (Pair<Field, Field> p : fields) {
-            p.getValue().set(result, p.getKey().get(obj));
+            Field f = p.getKey();
+            Field g = p.getValue();
+            Object value = f.get(obj);
+            g.set(result, value);
         }
         return result;
     }

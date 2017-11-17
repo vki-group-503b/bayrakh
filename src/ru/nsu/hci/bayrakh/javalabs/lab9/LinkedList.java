@@ -33,12 +33,18 @@ public class LinkedList<T> implements Iterable<T> {
     }
 
     public T popFront() {
+        if (begin == null) {
+            return null;
+        }
         T result = begin.getValue();
         begin = begin.removeSelfFront();
         return result;
     }
 
     public T popBack() {
+        if (end == null) {
+            return null;
+        }
         T result = end.getValue();
         end = end.removeSelfBack();
         return result;

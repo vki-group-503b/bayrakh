@@ -18,5 +18,16 @@ class LinkedListTest {
         expect.add(2);
         expect.add(4);
         assertIterableEquals(list, expect);
+
+        assertEquals(list.popBack().intValue(), 4);
+        expect = new Vector<>();
+        expect.add(5);
+        expect.add(2);
+        assertIterableEquals(list, expect);
+
+        assertEquals(list.popFront().intValue(), 5);
+        expect = new Vector<>();
+        expect.add(2);
+        assertIterableEquals(list, expect);
     }
 }
