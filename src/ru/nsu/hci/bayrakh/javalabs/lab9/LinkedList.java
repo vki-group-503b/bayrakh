@@ -54,7 +54,7 @@ public class LinkedList<T> implements Iterable<T> {
         return new LinkedListIterator<>(begin);
     }
 
-    public LinkedListIterator<T> reverce_iterator() {
+    public LinkedListIterator<T> reverse_iterator() {
         return new LinkedListIterator<>(end, true);
     }
 }

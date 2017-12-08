@@ -41,14 +41,11 @@ public class LinkedListElement<T> {
 
     public void removeSelf() {
         if (prev != null) {
-            prev.next = null;
+            prev.next = next;
         }
         if (next != null) {
-            next.prev = null;
+            next.prev = prev;
         }
-        prev = null;
-        value = null;
-        next = null;
     }
 
     public LinkedListElement<T> removeSelfFront() {
