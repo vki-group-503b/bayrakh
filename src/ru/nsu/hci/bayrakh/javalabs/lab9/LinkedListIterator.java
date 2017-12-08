@@ -22,12 +22,7 @@ public class LinkedListIterator<T> implements Iterator<T> {
             throw new NoSuchElementException();
         }
         final LinkedListElement<T> element = next;
-        if (element != null) {
-            next = isReverse ? element.getPrev() : element.getNext();
-            return element.getValue();
-        } else {
-            next = null;
-            return null;
-        }
+        next = isReverse ? element.getPrev() : element.getNext();
+        return element.getValue();
     }
 }

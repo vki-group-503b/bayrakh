@@ -6,7 +6,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class ReflectionTest {
     @Test
-    void useCaseTest() throws Exception {
+    void mapper_maps_point_to_inherited_vector() throws Exception {
         Point3D point = new Point3D(1, 5, -2);
         Mapper<Point3D, Vector3D> mapper = new Mapper<>(Point3D.class, Vector3D.class);
         Vector3D vector = mapper.Map(point);

@@ -2,6 +2,8 @@ package ru.nsu.hci.bayrakh.javalabs.lab8;
 
 import org.junit.jupiter.api.Test;
 
+import java.util.concurrent.locks.Lock;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class LockerTest {
@@ -21,4 +23,40 @@ class LockerTest {
         l.setValue(3);
         assertEquals(l.getValue(), 3);
     }
+
+    @Test public void locker_stores_number() {
+        Locker locker = new Locker(42);
+    }
+
+    @Test public void getValue_returns_locker_value() {
+        Locker locker = new Locker(42);
+        assertEquals(42, locker.getValue());
+    }
+
+    @Test void setValue_sets_locker_value() throws LockerLockedException {
+        Locker locker = new Locker(0);
+        locker.setValue(42.0);
+        assertEquals(42.0, locker.getValue());
+    }
+
+    @Test void locked_locker_fails_when_trying_to_set_value() {
+        Locker locker = new Locker(42);
+        locker.lock();
+        assertThrows(LockerLockedException.class, () -> locker.setValue(58));
+    }
+
+    @Test void setValue_does_not_fail_when_locker_is_unlocked() throws LockerLockedException {
+        Locker locker = new Locker(42);
+        locker.lock();
+        locker.unlock();
+
+        locker.setValue(24);
+    }
+
+    @Test void getValue_works_when_locker_is_locked() {
+        Locker locker = new Locker(24);
+        locker.lock();
+        assertEquals(24, locker.getValue());
+    }
+
 }
