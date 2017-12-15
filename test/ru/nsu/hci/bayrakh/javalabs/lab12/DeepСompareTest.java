@@ -55,7 +55,6 @@ class DeepСompareTest {
         assert !DeepСompare.Compare(a, c);
     }
 
-
     @Test
     void comparing_objects_of_the_same_recursive_object_type() throws IllegalAccessException {
         RecursiveObject<Integer> a = new RecursiveObject<>(1, null);
@@ -64,12 +63,12 @@ class DeepСompareTest {
         RecursiveObject<Integer> c = new RecursiveObject<>(1, null);
         RecursiveObject<Integer> d = new RecursiveObject<>(2, c);
         c.ref = d;
-        assert DeepСompare.Compare(a,c);
-        assert DeepСompare.Compare(b,d);
-        assert !DeepСompare.Compare(a,b);
-        assert !DeepСompare.Compare(a,d);
-        assert !DeepСompare.Compare(b,c);
-        assert !DeepСompare.Compare(c,d);
+        assert DeepСompare.Compare(a, c);
+        assert DeepСompare.Compare(b, d);
+        assert !DeepСompare.Compare(a, b);
+        assert !DeepСompare.Compare(a, d);
+        assert !DeepСompare.Compare(b, c);
+        assert !DeepСompare.Compare(c, d);
 
 
     }
